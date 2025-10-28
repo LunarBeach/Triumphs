@@ -1,0 +1,34 @@
+ok I need to create another python module now, this module needs to be called add_bonus_cards , 
+
+This module will have the following functions; 
+
+Function 1) This function will look up the prize_inventory table and create a new list called current_prize_inventory() that represents the prizes in the database, for example if the database indicates that the value for 'free_popcorn' is 20 then it will add 20 instances of the string 'free_popcorn' to the list. If the value for 'free_popcorn' is 0 in the database then no 'free_popcorn' string will be added. It will iterate through each prize_type and respective quantity value in the database to create the full list. if there are no prizes for any prize type in the database, meaning that all of the prize type values are 0 then this whole module will not continue to execute and will simply not create any bonus_cards and the game will continue without them.  
+
+Function 2) If the current_prize_inventory() list has items then this function will decide if a bonus card is going to be created and added to the deck, and if so how many bonus_cards there will be. It will do this by using a while loop and a random.random() < 0.1 conditional statement within the conditional it will have a variable to store the quantity of bonus cards that will be created , the variable within the function can be called bonus_card_qty and use a += in case the loop runs more than one time and multiple bonus_cards will be created for the game. If the first random.random conditional is not met (should be a 90% chance of this) then bonus_card_qty can be set to zero and the module can be gracefully exited and the game will continue as normal with no bonus cards 
+
+Function 3) This function should only execute if bonus_card_qty is not 0 , if bonus card qty is not zero then it should actually create a new unique object of class Card (defined in card_creation.py) except that all of the attributes will initially be set to none or zero EXCEPT the suit which will be set to 'bonus' 
+
+Here is the context of class Card for reference: 
+#defining card class
+
+class Card:
+    def __init__(self, rank, trick_power, suit, score_value, name=None): 
+        self.rank = rank
+        self.trick_power = trick_power
+        self.suit = suit
+        self.score_value = score_value
+        self.name = None or (rank if suit =='trump' else f'{rank} of {suit}')
+
+    def __repr__(self):
+        return self.name
+
+Function 4) Now that any prize cards have been initialized as card objects this function will put them into a list called list_of_bonus_cards(), unless of course there are no bonus_cards , then this function should not execute and is irrelevant 
+
+Function 5) Assuming there is now a list containing one or more bonus_cards this function will make a random selection from the current_prize_inventory list for each bonus_card in bonus_cards it will then set the rank for the bonus_card object to be the same as the string which was randomly selected from the current_prize_inventory() list. It will also remove that instance of the string that was chosen from the list from the current_prize_inventory list. 
+
+
+Function 6) Any bonus_card card objects that have been created in this module should now have a suit and a rank and be put in a list called bonus_card_list() which the card creation module can call when building decks 
+
+Function 7) Lastly, this function is very important, if any bonus card objects were created then the prize which was taken from the current_prize_inventory list and added as their rank should subsequently be removed form the prize_inventory table in the database, I think the best way to do this would be to create a function that counts the instances of each prize_type in the list and then updates the value for that prize_type's column in the prize_inventory database 
+
+Remember, that many games could be being played on the website simultaneously and this module will be run once per game session, and each new game session should do a fresh run of this module with no residual values in any of the lists or variables from any previous or concurrent instances of it running. 
