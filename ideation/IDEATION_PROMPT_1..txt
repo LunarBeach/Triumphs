@@ -1,0 +1,15 @@
+I am making a card game in python. I have a strong idea for the actual code I think but I want to make some documentation for it in advance to help keep me organized. Namely, I want to make an SysRS , SRS, and URS. Rather, I would like you to create rough drafts of these documents formatted professionally with all the industry standard information included based on the information I am about to detail for you.
+
+1) The card game will be written in Python and use the Django framework
+2) my current hosting service only has options for MariaDB so I will need to use that type of database
+3) Users will be able to login to my wordpress website, only a logged in user will have access to the page that serves as a portal to play the game
+4) The website itself is php with inline javascript and css
+5) The hosting provider is called websavers and the ftp files and the mariaDB databases are managed through plesk
+6) The game will edit various tables in the database tracking the values of cards, the points a user has, additionally there will be a adatabse containing a limited amount of instant win prizes, that will be dealt out to players in the form of a card which simply informs the user they have won a prize and then will deal another card in its place immediately for actual game play.
+7) I am thinking the back-end python should be somewhat modular with separate .py files for creating the cards, initially dealing the cards, playing a "trick" which is what a round is referred to in this game which is based on a visconti-sforza playing card deck from the 1500s.
+8) Keep in mind many users may play many instances of this game, sometimes there will be other human players in the game and other times there will be bots and one human player, the deck has 78 normal playing cards (excluding the randomly distributed bonus prize cards)
+9) When a trick is won by a player they win a pile of cards which is moved into their "won_tricks_pile" at the end of the game.
+10 ) A trick is played by all of the players choosing one card that will go into battle (a trick) then the card with the highest value that is played wins the entire trick pile containing the other players cards which were put out to battle in that trick
+11) At the very end of the game all of the human users players scores will be added to their total points, which is a coumn in the database which keeps a sum of all the points they have win from playing this game (or others)
+12) The database is already created and is called "rkgsunll_buddywilde_db" the table which handles user login and user information is called "users" the database username is rkgsunll_buddy , A seperate table in this database can be created for the purpose of this game, even 2 or 3 would be fine.
+13) On the front end I would like there to be an animation that reveals the cards, I will have png images for all 78 cards...but I would like there to be a slight animation to the card getting flipped, whereby you can sort of see the corner of the card as it is flipped, a little of a "3D" aspect to the card being flipped if you understand what I mean.
