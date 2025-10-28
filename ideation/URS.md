@@ -50,7 +50,7 @@ The card game application will be built using Python Django framework and integr
 # IMPLEMENTATION REQUIREMENTS
 
 ## Modular Design
-- **Card Creation Module:** .py file for deck creation , prize card decisions, shuffling into a game deck that will be passed to the dealing module.
-- **Dealing Module:** .py file that will distribute 18 cards to each player randomly from the game deck
-- **Trick Module:** .py file for the trick play logic as new tricks are played, ending when all the players have played their final hand card.
-- **Main Module:** .py file that initializes a game session into a waiting_state , then into an active state where it will call the card creation module, the dealing module, the trick module, and finally end the game and handle updating each human players total_points value in the users table of the database. 
+- **Card Creation Module:** .py file for deck creation , prize card decisions, shuffling into a game deck that will be passed to the dealing module. **This is called card_creation.py**
+- **Dealing Module:** .py file that will distribute 18 cards to each player randomly from the game deck. **This is called deal_cards.py**
+- **Trick Module:** .py file for the trick play logic as new tricks are played, ending when all the players have played their final hand card. **This is called play_tricks.py**
+- **Main Module:** .py file that initializes a game session into a waiting_state , then into an active state where it will call the card creation module, the dealing module, the trick module, and finally end the game and handle updating each human players total_points value in the users table of the database. **This is called main_triumphs.py**
