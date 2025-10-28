@@ -1,4 +1,4 @@
-# SYTEM OVERVIEW
+# SYSTEM OVERVIEW
 
 ## System Architechture
 The card game system essentially follows a 3 tier architecture:
